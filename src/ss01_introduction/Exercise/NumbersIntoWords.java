@@ -29,7 +29,7 @@ public class NumbersIntoWords {
         }
         if (number <= 999) {
             String hundred = "hundred and";
-            if (number%100 === 0){
+            if (number%100 == 0){
                 hundred = " hundred";
             }
             return soToiMuoi[number / 100] + hundred + docSoChuyenDoi(number % 100);
