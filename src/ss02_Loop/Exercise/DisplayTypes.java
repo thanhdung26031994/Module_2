@@ -2,7 +2,7 @@ package ss02_Loop.Exercise;
 
 import java.util.Scanner;
 
-public class HienThiCacLoaiHinh {
+public class DisplayTypes {
     public static void main(String[] args) {
         int choice = -1;
         Scanner input = new Scanner(System.in);

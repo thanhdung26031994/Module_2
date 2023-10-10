@@ -2,13 +2,13 @@ package ss02_Loop.Exercise;
 
 import java.util.Scanner;
 
-public class SoNguyenToNhoHon100 {
+public class IntegersTo100 {
     public static boolean isPrime(int number){
         if (number < 2){
             return false;
         }
-        int kiemTra = (int)Math.sqrt(number);
-        for (int i = 2; i <= kiemTra; i++) {
+        int result = (int)Math.sqrt(number);
+        for (int i = 2; i <= result; i++) {
             if (number%i == 0){
                 return false;
             }

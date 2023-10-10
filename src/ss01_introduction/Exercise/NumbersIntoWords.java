@@ -2,7 +2,7 @@ package ss01_introduction.Exercise;
 
 import java.util.Scanner;
 
-public class DocSoThanhChu {
+public class NumbersIntoWords {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int number;
@@ -28,7 +28,11 @@ public class DocSoThanhChu {
             return soChuc[number / 10] + " " + soToiMuoi[number % 10];
         }
         if (number <= 999) {
-            return soToiMuoi[number / 100] + " hundred and " + docSoChuyenDoi(number % 100);
+            String hundred = "hundred and";
+            if (number%100 === 0){
+                hundred = " hundred";
+            }
+            return soToiMuoi[number / 100] + hundred + docSoChuyenDoi(number % 100);
         }
         return "";
     }

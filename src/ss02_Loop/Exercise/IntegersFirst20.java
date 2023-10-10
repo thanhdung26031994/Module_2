@@ -2,7 +2,7 @@ package ss02_Loop.Exercise;
 
 import java.util.Scanner;
 
-public class SoNguyenTo20 {
+public class IntegersFirst20 {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -26,8 +26,8 @@ public class SoNguyenTo20 {
             return false;
         }
         // check số nguyên tố  number >=2
-        int kiemTra = (int)Math.sqrt(number);
-        for (int i = 2; i <= kiemTra; i++) {
+        int result = (int)Math.sqrt(number);
+        for (int i = 2; i <= result; i++) {
             if (number%i == 0){
                 return false;
             }
