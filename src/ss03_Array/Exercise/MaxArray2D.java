@@ -3,7 +3,7 @@ package ss03_Array.Exercise;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class maxArray2D {
+public class MaxArray2D {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập độ dài m: ");
@@ -19,5 +19,15 @@ public class maxArray2D {
             System.out.println();
         }
         System.out.println(Arrays.deepToString(array2D));
+        int max2D = array2D[0][0];
+        for (int i = 0; i < m;i++){
+            for (int j = 0; j < n; j++) {
+                if (max2D < array2D[i][j]){
+                    max2D = array2D[i][j];
+                }
+            }
+
+        }
+        System.out.println("Giá trị lớn nhất là: " + max2D);
     }
 }

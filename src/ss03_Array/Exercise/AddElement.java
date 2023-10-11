@@ -2,7 +2,7 @@ package ss03_Array.Exercise;
 
 import java.util.Scanner;
 
-public class addElement {
+public class AddElement {
     public static void main(String[] args) {
 
         int[] array = {3, 5, 4, 6, 8, 9, 10, 0};

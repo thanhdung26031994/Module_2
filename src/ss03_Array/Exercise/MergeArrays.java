@@ -2,7 +2,7 @@ package ss03_Array.Exercise;
 
 import java.util.Scanner;
 
-public class mergeArrays {
+public class MergeArrays {
     public static void main(String[] args) {
         int[] arr1 = new int[5];
         int[] arr2 = new int[5];

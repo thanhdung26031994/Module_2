@@ -15,11 +15,10 @@ public class DeleteArray {
             }
         }while (size > 50);
         arr = new int[size];
-        int index = 0;
-        while (index < arr.length){
-            System.out.println("Nhập phân tử " + (index + 1) + " là: ");
-            arr[index] = input.nextInt();
-            index++;
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Nhập phân tử " + (i + 1) + " là: ");
+            arr[i] = input.nextInt();
         }
         System.out.println("Dãy mảng mới nhập là: ");
         for (int i = 0; i < arr.length; i++) {
