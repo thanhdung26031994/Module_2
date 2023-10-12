@@ -46,7 +46,6 @@ public class Fan {
     public int getSLOW() {
         return SLOW;
     }
-
     public int getSpeed() {
         return speed;
     }
@@ -57,17 +56,45 @@ public class Fan {
     public boolean getTurnOn(){
         return on = true;
     }
-    /*public boolean getTurnOff(){
-        on = false;
-    }*/
+    public String getColor(String color){
+        this.color = color;
+        return this.color;
+    }
+    public final int getMaxSpeed(){
+        this.speed = FAST;
+        return this.speed;
+    }
+    public double getRadius(double radius){
+        this.radius = radius;
+        return this.radius;
+    }
+    public final int getMediumSpeed(){
+        this.speed = MEDIUM;
+        return this.speed;
+    }
+    @Override
+    public String toString() {
+        return "Fan{" +
+                " speed=" + speed +
+                ", on=" + on +
+                ", radius=" + radius +
+                ", color='" + color + '\'' +
+                '}';
+    }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+
         Fan fan1 = new Fan();
         Fan fan2 = new Fan();
-        fan1.getFAST();
-        fan1.getSpeed();
+        fan1.getColor("Yellow");
+        fan1.getMaxSpeed();
+        fan1.getRadius(10);
         fan1.getTurnOn();
-        System.out.println(fan1);
+
+        fan2.getColor("Green");
+        fan2.getMediumSpeed();
+
+        System.out.println(fan1.toString());
+        System.out.println(fan2.toString());
     }
 }
