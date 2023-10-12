@@ -20,11 +20,7 @@ public class SumDiagonalLine {
         System.out.println("Dãy mảng 2 chiều là: " + Arrays.deepToString(array2D));
         int sum =0;
         for (int i = 0; i < array2D.length; i++) {
-            for (int j = 0; j < array2D[i].length; j++) {
-                if (i == j){
-                    sum += array2D[i][j];
-                }
-            }
+            sum += array2D[i][i];
         }
         System.out.println("Tổng đường chéo của mảng là " + sum);
     }

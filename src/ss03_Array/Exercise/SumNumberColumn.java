@@ -31,8 +31,8 @@ public class SumNumberColumn {
             }
         }
         int sum = 0;
-        for (int i = 0; i < array2D[column].length; i++) {
-            sum += array2D[column][i];
+        for (int i = 0; i < array2D.length; i++) {
+            sum += array2D[i][column];
         }
         System.out.println("Tổng giá trị tại " + column + " là: " + sum);
     }
