@@ -72,14 +72,16 @@ public class Fan {
         this.speed = MEDIUM;
         return this.speed;
     }
+    public boolean getTurnOff(){
+        return on = false;
+    }
     @Override
     public String toString() {
-        return "Fan{" +
-                " speed=" + speed +
-                ", on=" + on +
-                ", radius=" + radius +
-                ", color='" + color + '\'' +
-                '}';
+        if (this.isOn()) {
+            return String.format("Speed: %d, Color: %s, Radius: %.1f. Fan is On", speed, color, radius);
+        } else {
+            return String.format("Color: %s, Radius: %.1f. Fan is Off", color, radius);
+        }
     }
 
     public static void main(String[] args) {
@@ -93,6 +95,7 @@ public class Fan {
 
         fan2.getColor("Green");
         fan2.getMediumSpeed();
+        fan2.getTurnOff();
 
         System.out.println(fan1.toString());
         System.out.println(fan2.toString());
