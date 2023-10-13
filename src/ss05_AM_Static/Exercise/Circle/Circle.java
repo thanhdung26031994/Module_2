@@ -1,4 +1,4 @@
-package ss05_AM_Static.Exercise;
+package ss05_AM_Static.Exercise.Circle;
 
 public class Circle {
     private double radius;
@@ -6,14 +6,14 @@ public class Circle {
     public Circle(){
     }
     public Circle(double r){
-        radius = r;
+        this.radius = r;
     }
 
     public double getRadius() {
-        return radius;
+        return this.radius;
+    }
+    public double getArea(){
+        return Math.PI*this.radius*this.radius;
     }
 
-    public String getColor() {
-        return color;
-    }
 }
