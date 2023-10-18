@@ -4,8 +4,8 @@ public class Point {
     private float x = 0.0f;
     private float y = 0.0f;
 
-    Point(){}
-    Point(float x, float y){
+    public Point(){}
+    public Point(float x, float y){
         this.x = x;
         this.y = y;
     }

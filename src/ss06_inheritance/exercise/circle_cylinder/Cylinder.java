@@ -3,10 +3,7 @@ package ss06_inheritance.exercise.circle_cylinder;
 public class Cylinder extends Circle {
     private double height;
 
-    Cylinder(){
-    }
-    Cylinder(double height){
-        this.height = height;
+    public Cylinder(){
     }
     Cylinder(double height, double radius, String color){
         super(radius, color);
@@ -21,28 +18,8 @@ public class Cylinder extends Circle {
         this.height = height;
     }
 
-    @Override
-    public double getRadius() {
-        return super.getRadius();
-    }
-
-    @Override
-    public String getColor() {
-        return super.getColor();
-    }
-
-    @Override
-    public void setRadius(double radius) {
-        super.setRadius(radius);
-    }
-
-    @Override
-    public void setColor(String color) {
-        super.setColor(color);
-    }
-
     public double getVolume(){
-        return Math.PI* this.getRadius() *this.getRadius()*this.height;
+        return getArea()*this.height;
     }
 
     @Override
