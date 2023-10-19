@@ -3,7 +3,7 @@ package ss06_inheritance.exercise.point_moveablePoint;
 public class MoveablePoint extends Point{
     private float xSpeed;
     private float ySpeed;
-    MoveablePoint(){}
+    public MoveablePoint(){}
     public MoveablePoint(float xSpeed, float ySpeed){
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
