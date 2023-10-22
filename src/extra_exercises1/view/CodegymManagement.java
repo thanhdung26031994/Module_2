@@ -1,6 +1,6 @@
-package ss8_mvc.view;
+package extra_exercises1.view;
 
-import ss8_mvc.controller.StudentController;
+import extra_exercises1.controller.StudentController;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package ss8_mvc.model;
+package extra_exercises1.model;
 
 public class Student {
     private int id;

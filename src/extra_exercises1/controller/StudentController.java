@@ -1,7 +1,7 @@
-package ss8_mvc.controller;
+package extra_exercises1.controller;
 
-import ss8_mvc.service.IStudentService;
-import ss8_mvc.service.StudentService;
+import extra_exercises1.service.IStudentService;
+import extra_exercises1.service.StudentService;
 
 public class StudentController {
     private IStudentService iStudentService = new StudentService();

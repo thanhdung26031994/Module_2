@@ -1,6 +1,4 @@
-package ss09_DSA.example.list;
-
-import org.hamcrest.internal.ArrayIterator;
+package ss09_DSA.example.list.myarrlist;
 
 public class MyArrayList<E> extends MyAbstractList<E> {
     public static final int INITIAL_CAPACITY = 16;

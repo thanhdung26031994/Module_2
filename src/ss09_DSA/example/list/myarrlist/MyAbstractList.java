@@ -1,6 +1,7 @@
-package ss09_DSA.example.list;
+package ss09_DSA.example.list.myarrlist;
 
 public abstract class MyAbstractList<E> implements MyList<E>{
+    public Object[] elements;
     protected int size = 0;
     protected MyAbstractList(){}
     protected MyAbstractList(E[] object){

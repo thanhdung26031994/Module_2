@@ -1,7 +1,7 @@
-package ss8_mvc.repository;
+package extra_exercises1.repository;
 
 
-import ss8_mvc.model.Student;
+import extra_exercises1.model.Student;
 
 public class StudentRepository implements IStudentRepository {
     private static Student[] students = new Student[10];

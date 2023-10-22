@@ -1,7 +1,7 @@
-package ss8_mvc.service;
+package extra_exercises1.service;
 
-import ss8_mvc.repository.IStudentRepository;
-import ss8_mvc.repository.StudentRepository;
+import extra_exercises1.repository.IStudentRepository;
+import extra_exercises1.repository.StudentRepository;
 
 public class StudentService implements IStudentService{
     private IStudentRepository iStudentRepository = new StudentRepository();
