@@ -1,4 +1,4 @@
-package ss09_DSA.example.list.arraylist;
+package ss10_dsa_list.example.list.arraylist;
 
 import java.util.ArrayList;
 import java.util.List;

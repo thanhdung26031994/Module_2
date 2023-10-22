@@ -1,4 +1,4 @@
-package ss09_DSA.example.list.myarrlist;
+package ss10_dsa_list.example.list.myarrlist;
 
 public interface MyList<E> extends java.lang.Iterable<E>{
     void add(E e);

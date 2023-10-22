@@ -1,4 +1,4 @@
-package ss8_mvc.practive.fizz_buzz;
+package ss08_mvc.practive.fizz_buzz;
 
 public class FizzBuzz {
     public static String fizzBuzz(int number){

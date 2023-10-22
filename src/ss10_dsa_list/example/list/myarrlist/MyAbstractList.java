@@ -1,4 +1,4 @@
-package ss09_DSA.example.list.myarrlist;
+package ss10_dsa_list.example.list.myarrlist;
 
 public abstract class MyAbstractList<E> implements MyList<E>{
     public Object[] elements;

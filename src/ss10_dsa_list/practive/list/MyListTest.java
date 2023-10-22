@@ -1,9 +1,5 @@
-package ss09_DSA.practive.list;
+package ss10_dsa_list.practive.list;
 
-
-import java.util.Arrays;
-
-import static com.sun.org.apache.xerces.internal.impl.xpath.regex.CaseInsensitiveMap.get;
 
 public class MyListTest {
     public static void main(String[] args) {

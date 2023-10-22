@@ -1,4 +1,4 @@
-package ss09_DSA.example.list.myarrlist;
+package ss10_dsa_list.example.list.myarrlist;
 
 public class MyArrayList<E> extends MyAbstractList<E> {
     public static final int INITIAL_CAPACITY = 16;

@@ -1,4 +1,4 @@
-package ss09_DSA.example.set;
+package ss10_dsa_list.example.set;
 
 import java.util.HashSet;
 import java.util.Iterator;
