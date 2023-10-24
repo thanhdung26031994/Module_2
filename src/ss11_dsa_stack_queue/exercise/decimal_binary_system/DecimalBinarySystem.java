@@ -13,9 +13,9 @@ public class DecimalBinarySystem {
         number = input.nextInt();
         //cach 1
         //System.out.println(Integer.toBinaryString(number));
-
+        int number1;
         while (number != 0){
-            int number1 = number%2;
+            number1 = number%2;
             stack.push(number1);
             number /= 2;
         }

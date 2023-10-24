@@ -11,9 +11,9 @@ public class CountTheNumberOfOccurrences {
         String str = input.nextLine();
         Map<Character, Integer> treeMap = new TreeMap<>();
         Character keys;
+        int count;
         for (int i=0; i<str.length(); i++){
             keys = str.charAt(i);
-            int count;
             if (treeMap.containsKey(keys)){
                 count = treeMap.get(keys);
                 treeMap.put(keys, count + 1);

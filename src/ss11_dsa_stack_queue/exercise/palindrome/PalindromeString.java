@@ -4,7 +4,7 @@ package ss11_dsa_stack_queue.exercise.palindrome;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class palindrome_string {
+public class PalindromeString {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Stack<Character> stack = new Stack<>();
