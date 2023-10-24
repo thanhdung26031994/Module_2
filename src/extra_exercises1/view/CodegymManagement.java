@@ -22,7 +22,7 @@ public class CodegymManagement {
                     studentController.showList();
                     break;
                 case 2:
-                    //them moi
+                    studentController.addStudent();
                     break;
                 case 3:
                     // sua

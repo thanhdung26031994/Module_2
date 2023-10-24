@@ -6,5 +6,7 @@ interface ProductRepository {
     void deleteProduct();
     void displayProduct();
     void seachProduct();
-    void arrangeProduct();
+    void ascendingProduct();
+    void descendingProduct();
+
 }

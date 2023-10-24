@@ -3,10 +3,12 @@ package extra_exercises1.model;
 public class Student {
     private int id;
     private String name;
+    private double point;
 
-    public Student(int id, String name) {
+    public Student(int id, String name, double point) {
         this.id = id;
         this.name = name;
+        this.point = point;
     }
 
     public int getId() {
@@ -25,11 +27,20 @@ public class Student {
         this.name = name;
     }
 
+    public double getPoint() {
+        return point;
+    }
+
+    public void setPoint(double point) {
+        this.point = point;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", point=" + point +
                 '}';
     }
 }

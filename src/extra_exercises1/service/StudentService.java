@@ -9,4 +9,7 @@ public class StudentService implements IStudentService{
     public void showList() {
         iStudentRepository.showList();
     }
+    public void addStudent(){
+        iStudentRepository.addStudent();
+    }
 }

@@ -21,4 +21,10 @@ public class ProductController{
     public void seachProduct(){
         productService.seachProduct();
     }
+    public void ascendingProduct(){
+        productService.ascendingProduct();
+    }
+    public void descendingProduct(){
+        productService.descendingProduct();
+    }
 }

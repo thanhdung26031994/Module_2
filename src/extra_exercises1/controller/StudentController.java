@@ -8,4 +8,7 @@ public class StudentController {
     public void showList(){
         iStudentService.showList();
     }
+    public void addStudent(){
+        iStudentService.addStudent();
+    }
 }

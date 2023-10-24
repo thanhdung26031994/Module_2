@@ -6,5 +6,6 @@ public interface ProductService {
     void deleteProduct();
     void displayProduct();
     void seachProduct();
-
+    void ascendingProduct();
+    void descendingProduct();
 }

@@ -17,7 +17,8 @@ public class Menu {
                     "3. Xoá sản phẩm. \n" +
                     "4. Hiển thị danh sách sản phẩm. \n" +
                     "5. Tìm kiếm sản phẩm theo tên. \n" +
-                    "6. Sắp xếp sản phẩm. \n" +
+                    "6. Sắp xếp sản phẩm tăng dần. \n" +
+                    "7. Sắp xếp sản phẩm giảm dần. \n" +
                     "0. Thoát. \n"
                     );
             Scanner input = new Scanner(System.in);
@@ -39,7 +40,10 @@ public class Menu {
                     productService.seachProduct();
                     break;
                 case 6:
-                    //
+                    productService.ascendingProduct();
+                    break;
+                case 7:
+                    productService.descendingProduct();
                     break;
                 case 0:
                     System.out.println("Hẹn gặp lại.");

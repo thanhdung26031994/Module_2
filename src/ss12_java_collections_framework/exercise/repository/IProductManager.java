@@ -2,16 +2,14 @@ package ss12_java_collections_framework.exercise.repository;
 
 import ss12_java_collections_framework.exercise.model.Product;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class IProductManager implements ProductRepository {
     static List<Product> productList = new ArrayList<>();
     static {
         productList.add(new Product(1,"Bia", 25000));
-        productList.add(new Product(1,"Coca", 15000));
-        productList.add(new Product(1,"Bánh", 20000));
+        productList.add(new Product(2,"Coca", 15000));
+        productList.add(new Product(3,"Bánh", 20000));
     }
     @Override
     public void addProduct() {
@@ -76,9 +74,20 @@ public class IProductManager implements ProductRepository {
             }
         }
     }
-
+    // tăng dần
     @Override
-    public void arrangeProduct() {
-
+    public void ascendingProduct() {
+        productList.sort(Product::compareTo);
+        for (Product product: productList){
+            System.out.println(product);
+        }
+    }
+    //giảm dần
+    public void descendingProduct(){
+        DecreaseProduct decreaseProduct = new DecreaseProduct();
+        Collections.sort(productList, decreaseProduct);
+        for (Product product: productList){
+            System.out.println(product);
+        }
     }
 }

@@ -25,5 +25,10 @@ public class IProductService implements ProductService {
     public void seachProduct(){
         iProductManager.seachProduct();
     }
-
+    public void ascendingProduct(){
+        iProductManager.ascendingProduct();
+    }
+    public void descendingProduct(){
+        iProductManager.descendingProduct();
+    }
 }
