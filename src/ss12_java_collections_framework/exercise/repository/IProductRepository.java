@@ -1,6 +1,6 @@
-package ss12_java_collections_framework.exercise.service;
+package ss12_java_collections_framework.exercise.repository;
 
-public interface IProductService {
+interface IProductRepository {
     void addProduct();
     void editProduct();
     void deleteProduct();
@@ -8,4 +8,5 @@ public interface IProductService {
     void seachProduct();
     void ascendingProduct();
     void descendingProduct();
+
 }

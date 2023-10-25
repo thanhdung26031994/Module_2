@@ -9,7 +9,8 @@ public class Menu {
     public static void main(String[] args) {
 
         ProductController productService = new ProductController();
-
+        Scanner input = new Scanner(System.in);
+        int choice = Integer.parseInt(input.nextLine());
         do {
             System.out.println("Vui lòng chọn chức năng: \n"+
                     "1. Thêm sản phẩm. \n" +
@@ -21,8 +22,8 @@ public class Menu {
                     "7. Sắp xếp sản phẩm giảm dần. \n" +
                     "0. Thoát. \n"
                     );
-            Scanner input = new Scanner(System.in);
-            int choice = Integer.parseInt(input.nextLine());
+
+
             switch (choice){
                 case 1:
                     productService.addProduct();

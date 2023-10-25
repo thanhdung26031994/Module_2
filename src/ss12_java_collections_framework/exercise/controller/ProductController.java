@@ -1,11 +1,10 @@
 package ss12_java_collections_framework.exercise.controller;
 
-import ss12_java_collections_framework.exercise.service.IProductService;
 import ss12_java_collections_framework.exercise.service.ProductService;
 
 public class ProductController{
 
-    private IProductService productService = new IProductService();
+    private ProductService productService = new ProductService();
     public void addProduct() {
         productService.addProduct();
     }
