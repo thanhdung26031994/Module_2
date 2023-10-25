@@ -47,7 +47,7 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
-    public int compareTo(Product product){
-        return this.getPrice() - product.getPrice();
-    }
+//    public int compareTo(Product product){
+//        return this.getPrice() - product.getPrice();
+//    }
 }

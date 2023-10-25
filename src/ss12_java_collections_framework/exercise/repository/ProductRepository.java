@@ -77,10 +77,10 @@ public class ProductRepository implements IProductRepository {
     // tăng dần
     @Override
     public void ascendingProduct() {
-        productList.sort(Product::compareTo);
-        for (Product product: productList){
-            System.out.println(product);
-        }
+//        productList.sort(Product::compareTo);
+//        for (Product product: productList){
+//            System.out.println(product);
+//        }
     }
     //giảm dần
     public void descendingProduct(){
