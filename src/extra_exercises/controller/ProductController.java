@@ -28,7 +28,7 @@ public class ProductController {
         productService.editProduct(id, product);
     }
 
-    public Product searchByName(String name) {
+    public List<Product> searchByName(String name) {
         return productService.searchByName(name);
     }
 

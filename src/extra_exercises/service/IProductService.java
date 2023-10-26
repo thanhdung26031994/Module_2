@@ -7,15 +7,15 @@ import java.util.List;
 public interface IProductService {
     List<Product> getAll();
 
-    void addProduct(Product product);
+    void addProduct(Product p);
 
     Boolean removeProduct(Integer id);
 
     boolean checkId(Integer id);
 
-    void editProduct(Integer id, Product product);
+    void editProduct(Integer id, Product o);
 
-    Product searchByName(String name);
+    List<Product> searchByName(String name);
 
     void ascendingProduct();
 

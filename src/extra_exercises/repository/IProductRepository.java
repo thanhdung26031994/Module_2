@@ -6,16 +6,16 @@ import java.util.List;
 
 public interface IProductRepository {
     List<Product> getAll();
-    void addProduct(Product product);
+    void addProduct(Product p);
     Product findById(Integer id);
 
     void deleteById(Integer id);
 
     boolean checkId(Integer id);
 
-    void editProduct(Integer id, Product product);
+    void editProduct(Integer id, Product o);
 
-    Product seacrchByName(String name);
+    List<Product> seacrchByName(String name);
 
     void ascendingProduct();
 

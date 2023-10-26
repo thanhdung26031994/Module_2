@@ -38,7 +38,6 @@ public class Menu {
                     break;
                 case 2:
                     editProduct();
-                    System.out.println("Sửa thành công.");
                     break;
                 case 3:
                     id = inpId();
@@ -86,6 +85,7 @@ public class Menu {
     private static void ascendingProduct() {
         System.out.println("-----------Tăng dần-----------");
         productController.ascendingProduct();
+
     }
 
     private static void searchProductByName() {
@@ -108,6 +108,8 @@ public class Menu {
             System.out.print("Nhập thay đổi giá: ");
             price = Double.valueOf(input.nextLine());
             productController.editProduct(id, new Product(name, price));
+        }else {
+            System.out.println("Không có id muốn thay đổi.");
         }
     }
 

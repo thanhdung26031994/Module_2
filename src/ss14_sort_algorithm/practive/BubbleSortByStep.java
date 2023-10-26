@@ -18,6 +18,35 @@ public class BubbleSortByStep {
             System.out.print(arrList[i] + "\n");
         }
         System.out.println(Arrays.toString(arrList));
+        System.out.println("------------------");
+        bubbleSortByStep(arrList);
+    }
 
+    public static void bubbleSortByStep(int[] arrList){
+        int temp;
+        boolean needNextPass = true;
+        for (int i = 1; i < arrList.length; i++){
+            needNextPass =false;
+            for (int j = 0; j < arrList.length - i; j ++){
+                if (arrList[j] > arrList[j + 1]){
+                    System.out.println("Swap " + arrList[j] + " with " + arrList[j + 1]);
+                    temp = arrList[j];
+                    arrList[j] = arrList[j + 1];
+                    arrList[j + 1] = temp;
+
+                    needNextPass = true;
+                }
+            }
+
+            if (!needNextPass){
+                System.out.println("Mang da dc sap xep.");
+                break;
+            }
+            System.out.print("List after the  " + i + "' sort: ");
+            for (int j = 0; j < arrList.length; j++){
+                System.out.print(arrList[j]+"\t");
+            }
+            System.out.println();
+        }
     }
 }

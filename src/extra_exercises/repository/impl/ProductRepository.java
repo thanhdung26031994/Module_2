@@ -21,15 +21,15 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public void addProduct(Product product) {
-        products.add(product);
+    public void addProduct(Product p) {
+        products.add(p);
     }
 
     @Override
     public Product findById(Integer id) {
-        for (Product product: products){
-            if (product.getId().equals(id)){
-                return product;
+        for (Product p: products){
+            if (p.getId().equals(id)){
+                return p;
             }
         }
         return null;
@@ -56,24 +56,25 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public void editProduct(Integer id, Product product) {
+    public void editProduct(Integer id, Product o) {
         for (Product p: products){
             if (p.getId().equals(id)){
-                p.setName(product.getName());
-                p.setPrice(product.getPrice());
+                p.setName(o.getName());
+                p.setPrice(o.getPrice());
                 break;
             }
         }
     }
 
     @Override
-    public Product seacrchByName(String name) {
-        for (Product product: products){
-            if (product.getName().contains(name)){
-                return product;
+    public List<Product> seacrchByName(String name) {
+        List<Product> products1 = new ArrayList<>();
+        for (Product p: products){
+            if (p.getName().toLowerCase().contains(name.toLowerCase())){
+                products1.add(p);
             }
         }
-        return null;
+        return products1;
     }
 
     @Override
