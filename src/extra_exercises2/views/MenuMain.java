@@ -91,7 +91,7 @@ public class MenuMain {
         return new Product(name, price);
     }
 
-    private static Integer inputId() {
+    public static Integer inputId() {
         System.out.print("Nhập id sản phẩm: ");
         return Integer.valueOf(scanner.nextLine());
     }

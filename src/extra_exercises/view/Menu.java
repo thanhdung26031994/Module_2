@@ -99,7 +99,8 @@ public class Menu {
     }
 
     private static void editProduct() {
-        Integer id = inpId();
+        System.out.println("Nhập id sửa: ");
+        Integer id = Integer.parseInt(input.nextLine());
         String name;
         Double price;
         if (productController.checkId(id)){
@@ -108,6 +109,7 @@ public class Menu {
             System.out.print("Nhập thay đổi giá: ");
             price = Double.valueOf(input.nextLine());
             productController.editProduct(id, new Product(name, price));
+            System.out.println("Sửa thông tin thành công.");
         }else {
             System.out.println("Không có id muốn thay đổi.");
         }
@@ -115,7 +117,6 @@ public class Menu {
 
     private static Product inputInformation1() {
         System.out.print("Nhập tên sản phẩm: ");
-
         String name = input.nextLine();
         System.out.print("Nhập giá sản phâm: ");
         Double price = Double.valueOf(input.nextLine());
@@ -123,7 +124,14 @@ public class Menu {
     }
 
     private static Integer inpId() {
-        System.out.println("Nhập id sản phẩm: ");
-        return Integer.valueOf(input.nextLine());
+        int id;
+        do {
+            System.out.println("Nhập id sản phẩm: ");
+            id = Integer.parseInt(input.nextLine());
+            if (productController.checkId(id)){
+                System.out.println("ID đã tồn tại.");
+            }
+        }while(productController.checkId(id));
+        return id;
     }
 }

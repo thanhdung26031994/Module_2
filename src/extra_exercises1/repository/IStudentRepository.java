@@ -2,8 +2,8 @@ package extra_exercises1.repository;
 
 import extra_exercises1.model.Student;
 
+import java.util.List;
+
 public interface IStudentRepository {
-    void showList();
-    void addStudent();
-    void editStudent();
+    List<Student> getAll();
 }

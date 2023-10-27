@@ -1,21 +1,42 @@
 package extra_exercises1.model;
 
-public class Student {
-    private int id;
-    private String name;
-    private double point;
+import java.time.LocalDate;
+import java.util.Date;
 
-    public Student(int id, String name, double point) {
+public class Student {
+    private String id;
+    private String name;
+    private LocalDate date;
+    private Boolean gender = true;
+    private String classRoom;
+    private Double point;
+
+    public Student() {
+
+    }
+
+    public Student(String id, String name, LocalDate date, Boolean gender, String classRoom, Double point) {
         this.id = id;
         this.name = name;
+        this.date = date;
+        this.gender = gender;
+        this.classRoom = classRoom;
         this.point = point;
     }
 
-    public int getId() {
+    public Student(String name, LocalDate date, Boolean gender, String classRoom, Double point) {
+        this.name = name;
+        this.date = date;
+        this.gender = gender;
+        this.classRoom = classRoom;
+        this.point = point;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -27,20 +48,46 @@ public class Student {
         this.name = name;
     }
 
-    public double getPoint() {
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public Boolean getGender() {
+        return gender;
+    }
+
+    public void setGender(Boolean gender) {
+        this.gender = gender;
+    }
+
+    public String getClassRoom() {
+        return classRoom;
+    }
+
+    public void setClassRoom(String classRoom) {
+        this.classRoom = classRoom;
+    }
+
+    public Double getPoint() {
         return point;
     }
 
-    public void setPoint(double point) {
+    public void setPoint(Double point) {
         this.point = point;
     }
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", point=" + point +
-                '}';
+        return "Thông tin học sinh: " +
+                "Mã HS: " + id +
+                ", Tên: " + name +
+                ", Ngày sinh: " + date +
+                ", Giới tính: " + gender +
+                ", Lớp: " + classRoom +
+                ", Điểm số: " + point;
     }
 }

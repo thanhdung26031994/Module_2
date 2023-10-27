@@ -45,7 +45,8 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Thông tin sản phẩm: ID: " + id + ", Tên: " + name  + ", Giá:" + price;
+        return "Thông tin sản phẩm:" +
+                "ID: " + id + ", Tên: " + name  + ", Giá:" + price;
     }
 
     public int compareTo(Product o){
