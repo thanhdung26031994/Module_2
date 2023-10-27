@@ -1,4 +1,4 @@
-package ss8_mvc.practive.calculator;
+package ss08_mvc.practive.calculator;
 
 public class Calculator {
     public static final char ADDITION = '+';

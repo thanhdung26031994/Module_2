@@ -46,6 +46,7 @@ public class CodegymStudentMenu {
     private static void menuStudent() {
         String id;
         int choice;
+        Student student;
         do {
             System.out.println("-----------Thông tin học sinh----------");
             System.out.println("1.Hiển thị danh sách học sinh.");
@@ -62,14 +63,17 @@ public class CodegymStudentMenu {
                         System.out.println("Không có học sinh nào.");
                     }else {
                         System.out.println("---------Danh Sách Học Sinh-----------");
-                        for (Student student:students){
-                            System.out.println(student);
+                        for (Student s:students){
+                            System.out.println(s);
                         }
                     }
                     break;
                 case 2:
                     id = String.valueOf(inpuId());
-                    students = inputInformatin(id);
+                    student = inputInformatin(id);
+                    student.setId(id);
+                    studentController.addStudent(student);
+                    System.out.println("Thêm sản phẩm thành công.");
                     break;
                 case 0:
                     System.exit(0);
@@ -80,7 +84,8 @@ public class CodegymStudentMenu {
 
     }
 
-    private static List<Student> inputInformatin(String id) {
+
+    private static Student inputInformatin(String id) {
         System.out.println("Nhập tên học sinh: ");
         String name = scanner.nextLine();
         System.out.println("Nhập ngày sinh (Năm-Tháng-Ngày): ");
@@ -93,7 +98,7 @@ public class CodegymStudentMenu {
         String classRoom = scanner.nextLine();
         System.out.println("Nhập điểm: ");
         Double point = scanner.nextDouble();
-        return (List<Student>) new Student(name,date,gender,classRoom,point);
+        return new Student(name,date,gender,classRoom,point);
     }
 
     private static String inpuId() {

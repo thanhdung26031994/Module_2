@@ -1,4 +1,4 @@
-package ss8_mvc.practive.cylinder;
+package ss08_mvc.practive.cylinder;
 
 public class Cylinder {
     public static double getVolume(int radius, int height){

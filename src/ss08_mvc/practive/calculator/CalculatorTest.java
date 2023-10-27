@@ -1,4 +1,4 @@
-package ss8_mvc.practive.calculator;
+package ss08_mvc.practive.calculator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.*;

@@ -21,4 +21,9 @@ public class StudentRepository implements IStudentRepository {
 
         return students;
     }
+
+    @Override
+    public void addStudent(Student student) {
+        students.add(student);
+    }
 }

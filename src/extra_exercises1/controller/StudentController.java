@@ -11,4 +11,9 @@ public class StudentController {
     public List<Student> getAll() {
         return iStudentService.getAll();
     }
+
+    public void addStudent(Student student) {
+        iStudentService.addStudent(student);
+
+    }
 }
