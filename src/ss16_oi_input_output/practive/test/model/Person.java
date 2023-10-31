@@ -1,4 +1,4 @@
-package ss16_oi_input_output.practive.model;
+package ss16_oi_input_output.practive.test.model;
 
 public class Person {
     private Integer id;

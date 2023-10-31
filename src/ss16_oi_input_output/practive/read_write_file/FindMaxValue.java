@@ -1,6 +1,4 @@
-package ss16_oi_input_output.practive.read_file_example;
-
-import ss16_oi_input_output.practive.read_write_file.ReadAndWriteFile;
+package ss16_oi_input_output.practive.read_write_file;
 
 import java.util.List;
 
@@ -18,6 +16,8 @@ public class FindMaxValue {
 
     public static void main(String[] args) {
         ReadAndWriteFile readAndWriteFile = new ReadAndWriteFile();
-        List<Integer> numbers = readAndWriteFile.readAndWriteFile()
+        List<Integer> numbers = readAndWriteFile.readFile("D:\numbers.txt");
+        int value = findMaxValue(numbers);
+        readAndWriteFile.writeFile("D:\result.txt", value);
     }
 }

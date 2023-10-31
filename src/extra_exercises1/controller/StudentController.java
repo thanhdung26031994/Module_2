@@ -16,4 +16,12 @@ public class StudentController {
         iStudentService.addStudent(student);
 
     }
+
+    public boolean checkId(String id) {
+        return iStudentService.checkId(id);
+    }
+
+    public void editStudent(String id, Student student) {
+        iStudentService.editStudent(id, student);
+    }
 }

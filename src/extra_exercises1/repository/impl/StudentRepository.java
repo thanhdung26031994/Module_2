@@ -2,6 +2,7 @@ package extra_exercises1.repository.impl;
 
 import extra_exercises1.model.Student;
 import extra_exercises1.repository.IStudentRepository;
+import extra_exercises1.utils.write_read_file.WriteStudent;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,12 +19,36 @@ public class StudentRepository implements IStudentRepository {
     }
     @Override
     public List<Student> getAll() {
-
         return students;
     }
 
     @Override
     public void addStudent(Student student) {
-        students.add(student);
+
+        WriteStudent.writeToFile(student);
+    }
+
+    @Override
+    public boolean checkId(String id) {
+        for (Student s: students){
+            if (s.getId().toLowerCase().contains(id.toLowerCase())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void editStudent(String id, Student student) {
+        for (Student s: students){
+            if (s.getId().toLowerCase().contains(id.toLowerCase())){
+                s.setName(student.getName());
+                s.setDate(student.getDate());
+                s.setGender(student.getGender());
+                s.setClassRoom(student.getClassRoom());
+                s.setPoint(student.getPoint());
+                break;
+            }
+        }
     }
 }

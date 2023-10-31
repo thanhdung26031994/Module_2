@@ -18,4 +18,14 @@ public class StudentService implements IStudentService {
     public void addStudent(Student student) {
         studentRepository.addStudent(student);
     }
+
+    @Override
+    public boolean checkId(String id) {
+        return studentRepository.checkId(id);
+    }
+
+    @Override
+    public void editStudent(String id, Student student) {
+        studentRepository.editStudent(id, student);
+    }
 }

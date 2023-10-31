@@ -14,6 +14,7 @@ import static extra_exercises2.views.MenuMain.inputId;
 public class CodegymStudentMenu {
     private static Scanner scanner = new Scanner(System.in);
     private static StudentController studentController = new StudentController();
+
     public static void main(String[] args) {
 
         int choice;
@@ -24,7 +25,7 @@ public class CodegymStudentMenu {
             System.out.println("0.Thoát.");
             System.out.print("Nhập lựa chọn: ");
             choice = Integer.parseInt(scanner.nextLine());
-            switch (choice){
+            switch (choice) {
                 case 1:
                     menuStudent();
                     break;
@@ -36,7 +37,7 @@ public class CodegymStudentMenu {
                 default:
                     System.out.print("Nhập sai. Vui lòng nhập lại: ");
             }
-        }while (true);
+        } while (true);
 
     }
 
@@ -45,7 +46,7 @@ public class CodegymStudentMenu {
 
     private static void menuStudent() {
         String id;
-        int choice;
+        Integer choice;
         Student student;
         do {
             System.out.println("-----------Thông tin học sinh----------");
@@ -56,14 +57,14 @@ public class CodegymStudentMenu {
             System.out.println("0.Thoát");
             System.out.print("Vui lòng chọn: ");
             choice = Integer.parseInt(scanner.nextLine());
-            switch (choice){
+            switch (choice) {
                 case 1:
                     List<Student> students = studentController.getAll();
-                    if (students.isEmpty()){
+                    if (students.isEmpty()) {
                         System.out.println("Không có học sinh nào.");
-                    }else {
+                    } else {
                         System.out.println("---------Danh Sách Học Sinh-----------");
-                        for (Student s:students){
+                        for (Student s : students) {
                             System.out.println(s);
                         }
                     }
@@ -75,13 +76,40 @@ public class CodegymStudentMenu {
                     studentController.addStudent(student);
                     System.out.println("Thêm sản phẩm thành công.");
                     break;
+                case 3:
+                    editStudent();
+                    break;
                 case 0:
                     System.exit(0);
                 default:
                     System.out.print("Nhập sai. Vui lòng nhập lại:");
             }
-        }while (true);
+        } while (true);
 
+    }
+
+    private static void editStudent() {
+        System.out.println("Nhập id muốn thay đổi: ");
+        String id = scanner.nextLine();
+
+        if (studentController.checkId(id)) {
+            System.out.println("Nhập tên học sinh: ");
+            String name = scanner.nextLine();
+            System.out.println("Nhập ngày sinh (Năm-Tháng-Ngày): ");
+            String dataStr = scanner.nextLine();
+            LocalDate date = LocalDate.parse(dataStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            System.out.println("Nhập giới tính: ");
+            Boolean gender = scanner.nextBoolean();
+            scanner.nextLine();
+            System.out.println("Nhập mã lớp:");
+            String classRoom = scanner.nextLine();
+            System.out.println("Nhập điểm: ");
+            Double point = scanner.nextDouble();
+            scanner.nextLine();
+            studentController.editStudent(id, new Student(name, date, gender, classRoom, point));
+        } else {
+            System.out.println("Không có ID muốn thay đổi.");
+        }
     }
 
 
@@ -98,7 +126,8 @@ public class CodegymStudentMenu {
         String classRoom = scanner.nextLine();
         System.out.println("Nhập điểm: ");
         Double point = scanner.nextDouble();
-        return new Student(name,date,gender,classRoom,point);
+        scanner.nextLine();
+        return new Student(name, date, gender, classRoom, point);
     }
 
     private static String inpuId() {
