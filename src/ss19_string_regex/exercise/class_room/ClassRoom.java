@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class ClassRoom {
     private static Pattern pattern;
     private Matcher matcher;
-    private static final String CLASS_REGEX = "^[ACP]+[0-9]{4}[GHIK]$";
+    private static final String CLASS_REGEX = "^[ACP][0-9]{4}[GHIK]$";
 
     public ClassRoom(){}
     public boolean validate(String regex){

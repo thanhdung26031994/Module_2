@@ -1,6 +1,6 @@
 package case_study.utils.write_read;
 
-import case_study.model.Employee;
+import case_study.models.Employee;
 
 import java.io.*;
 import java.util.ArrayList;
