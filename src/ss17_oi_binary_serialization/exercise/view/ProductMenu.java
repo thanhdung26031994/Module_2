@@ -57,19 +57,8 @@ public class ProductMenu {
     }
 
     private static void addProduct() {
-        Integer id = inpId();
-        if (productController.checkId(id)){
-            System.out.println("Id đã có trong danh sách.");
-            scanner.nextLine();
-            return;
-        }
-        product = inputInfomation();
-        product.setId(id);
-        productController.addProduct(product);
-        System.out.println("Thêm sản phẩm thành công.");
-    }
-
-    private static Product inputInfomation() {
+        System.out.print("Nhập id sản phẩm: ");
+        Integer id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập tên sản phẩm: ");
         String name = scanner.nextLine();
         System.out.println("Nhập giá sản phẩm: ");
@@ -78,11 +67,8 @@ public class ProductMenu {
         String manufactured = scanner.nextLine();
         System.out.println("Mô tả sản phẩm: ");
         String describe = scanner.nextLine();
-        return new Product(name, price, manufactured, describe);
+        productController.addProduc(new Product(id,name, price, manufactured, describe));
+        System.out.println("Thêm sản phẩm thành công.");
     }
 
-    private static Integer inpId() {
-        System.out.print("Nhập id sản phẩm: ");
-        return Integer.valueOf(scanner.nextLine());
-    }
 }

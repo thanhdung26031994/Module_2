@@ -43,9 +43,14 @@ public class ReadCSV {
                 System.out.println(line);
                 stringList.add(line);
             }
-            bufferedReader.close();
         } catch (Exception e) {
             System.err.println("File không tồn tại hoặc nội dung có lỗi!");
+        }finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

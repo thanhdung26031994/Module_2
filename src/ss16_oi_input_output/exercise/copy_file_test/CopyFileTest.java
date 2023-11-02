@@ -49,9 +49,14 @@ public class CopyFileTest {
             fileWriter = new FileWriter(path);
             bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(String.valueOf(stringList));
-            bufferedWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            try {
+                bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return stringList;
     }

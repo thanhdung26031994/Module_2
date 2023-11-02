@@ -9,13 +9,6 @@ import java.util.List;
 public class ProductController {
     private static IProductService iProductService = new ProductService();
 
-    public boolean checkId(Integer id) {
-        return iProductService.checkId(id);
-    }
-
-    public void addProduct(Product product) {
-        iProductService.addProduct(product);
-    }
 
     public List<Product> getAll() {
         return iProductService.getAll();
@@ -23,5 +16,9 @@ public class ProductController {
 
     public List<Product> findByName(String name) {
         return iProductService.findByName(name);
+    }
+
+    public void addProduc(Product product) {
+        iProductService.addProduc(product);
     }
 }

@@ -25,6 +25,13 @@ public class ReadFile {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        }finally {
+            try {
+                objectInputStream.close();
+                fileInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return products;
     }

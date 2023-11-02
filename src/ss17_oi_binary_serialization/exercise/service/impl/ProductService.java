@@ -10,15 +10,6 @@ import java.util.List;
 public class ProductService implements IProductService {
     private static IProductRepository iProductRepository = new ProductRepository();
 
-    @Override
-    public boolean checkId(Integer id) {
-        return iProductRepository.checkId(id);
-    }
-
-    @Override
-    public void addProduct(Product product) {
-        iProductRepository.addProduct(product);
-    }
 
     @Override
     public List<Product> getAll() {
@@ -28,5 +19,10 @@ public class ProductService implements IProductService {
     @Override
     public List<Product> findByName(String name) {
         return iProductRepository.findByName(name);
+    }
+
+    @Override
+    public void addProduc(Product product) {
+        iProductRepository.addProduc(product);
     }
 }
