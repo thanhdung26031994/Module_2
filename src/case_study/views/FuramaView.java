@@ -29,7 +29,7 @@ public class FuramaView {
                     CustomerView.CustomerManagement();
                     break;
                 case 3:
-                    FacilityManagement();
+                    FacilityView.FacilityManagement();
                     break;
                 case 4:
                     BookingManagement();
@@ -96,30 +96,4 @@ public class FuramaView {
         }while (true);
     }
 
-    private static void FacilityManagement() {
-        do {
-            System.out.println("1.Display list facility\n" +
-                    "2.Add new facility\n" +
-                    "3.Display list facility maintenance\n" +
-                    "4.Delete facility\n" +
-                    "5.Return main menu\n");
-            System.out.print("Please choose: ");
-            choice = Integer.parseInt(in.nextLine());
-            switch (choice){
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    System.exit(5);
-                default:
-                    System.out.println("Please choose the correct one");
-            }
-        }while (true);
-
-    }
 }

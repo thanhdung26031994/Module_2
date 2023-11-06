@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class EmployeeView {
     private static final Scanner in  = new Scanner(System.in);
 
-    private static EmployeeController employeeController = new EmployeeController();
+    private static final EmployeeController employeeController = new EmployeeController();
     private static int choice;
 
 
@@ -61,6 +61,7 @@ public class EmployeeView {
         if (employeeController.checkName(nameSearch) == null){
             System.out.println("Không có tên nhân viên.");
         }else {
+            System.out.println("Thông tin bạn muốn tìm kiếm.");
             System.out.println(employeeController.checkName(nameSearch));
         }
     }
@@ -69,8 +70,21 @@ public class EmployeeView {
         System.out.print("Nhập id muốn xoá: ");
         String idDel = in.nextLine();
         if (employeeController.checkId(idDel)){
-            employeeController.deleteById(idDel);
-            System.out.println("Xoá thành công");
+            System.out.println("Bạn chắc chắn muốn xoá: \n" +
+                    "1.Vâng. \n" +
+                    "2.Không.");
+            System.out.print("Hãy lựa chọn: ");
+            choice = Integer.parseInt(in.nextLine());
+            switch (choice){
+                case 1:
+                    employeeController.deleteById(idDel);
+                    System.out.println("Xoá thành công");
+                    break;
+                case 2:
+                    return;
+                default:
+                    System.out.println("Vui lòng chọn đúng.");
+            }
         }else {
             System.out.println("Không có id muốn xoá.");
         }
@@ -80,20 +94,72 @@ public class EmployeeView {
         System.out.print("Nhập mã nhân viên sửa: ");
         String id = in.nextLine();
         if (employeeController.checkId(id)){
-            String nameUp = inputName();
-            String birthdayUp = inputBirthday();
-            String idCardUp = inputIdCard();
-            String phoneNumberUp = inputPhone();
-            String emailUp = inputEmail();
-            String genderUp = inputGender();
-            String positionUp = inputPosition();
-            String levelUp = inputLevel();
-            System.out.print("Nhập lương (nghìn đồng): ");
-            Double salaryUp = Double.parseDouble(in.nextLine());
-            employeeController.editEmployeeUp(id, new Employee(nameUp, birthdayUp, idCardUp, phoneNumberUp,
-                    emailUp, genderUp, positionUp,levelUp, salaryUp));
+            System.out.println("Chọn thông tin muốn sửa: \n" +
+                    "1. Sửa tên.\n" +
+                    "2. Sửa ngày sinh.\n"+
+                    "3. Sửa số CMND.\n"+
+                    "4. Sửa số điện thoại.\n"+
+                    "5. Sửa email.\n"+
+                    "6. Sửa giới tính.\n"+
+                    "7. Sửa trình độ.\n"+
+                    "8. Sửa vị trí.\n"+
+                    "9. Sửa lương.\n"+
+                    "0. Thoát");
+            System.out.print("Vui lòng chọn: ");
+            choice = Integer.parseInt(in.nextLine());
+            switch (choice){
+                case 1:
+                    String nameUp = inputName();
+                    employeeController.editName(id, nameUp);
+                    System.out.println("Sửa tên thành công.");
+                    break;
+                case 2:
+                    String birthdayUp = inputBirthday();
+                    employeeController.editBirthday(id, birthdayUp);
+                    System.out.println("Sửa ngày sinh thành công");
+                    break;
+                case 3:
+                    String idCardUp = inputIdCard();
+                    employeeController.editIdCardUp(id, idCardUp);
+                    System.out.println(" thành công");
+                    break;
+                case 4:
+                    String phoneNumberUp = inputPhone();
+                    employeeController.editPhoneUp(id, phoneNumberUp);
+                    System.out.println(" thành công");
+                    break;
+                case 5:
+                    String emailUp = inputEmail();
+                    employeeController.editEmailUp(id, emailUp);
+                    System.out.println(" thành công");
+                    break;
+                case 6:
+                    String genderUp = inputGender();
+                    employeeController.editGenderUp(id, genderUp);
+                    System.out.println("Sửa giới tính thành công");
+                    break;
+                case 7:
+                    String positionUp = inputPosition();
+                    employeeController.editPosition(id, positionUp);
+                    System.out.println(" thành công");
+                    break;
+                case 8:
+                    String levelUp = inputLevel();
+                    employeeController.editLevel(id, levelUp);
+                    System.out.println(" thành công");
+                    break;
+                case 9:
+                    Double salaryUp = inputSalary();
+                    employeeController.editSalary(id, salaryUp);
+                    System.out.println(" thành công");
+                    break;
+                case 0:
+                    return;
+                default:
+                    System.out.println("Vui lòng chọn đúng.");
+            }
         }else {
-            System.out.println("Không có id thay đổi");
+            System.out.println("Không tìm thấy nhân viên với id: " + id);
         }
     }
 
@@ -112,10 +178,31 @@ public class EmployeeView {
         String gender = inputGender();
         String position = inputPosition();
         String level = inputLevel();
-        System.out.print("Nhập lương (nghìn đồng): ");
-        Double salary = Double.parseDouble(in.nextLine());
+        Double salary = inputSalary();
         employeeController.addEmployee(new Employee(id, name, birthday, idCard, phoneNumber,
                 email, gender, position,level, salary));
+    }
+    private static Double inputSalary(){
+        Double salary = null;
+        boolean valid = false;
+        while (!valid){
+            try {
+                System.out.print("Nhập lương (nghìn đồng): ");
+                salary = Double.parseDouble(in.nextLine());
+                if (salary > 0){
+                    valid = true;
+                }else {
+                    System.out.println("Vui lòng nhập lại. Lương > 0");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập một số hợp lệ.");
+            } catch (NullPointerException e) {
+                System.out.println("Đã xảy ra lỗi. Vui lòng thử lại.");
+            } catch (Exception e){
+                System.err.println(e.getMessage());
+            }
+        }
+        return salary;
     }
 
     private static String inputLevel() {
@@ -131,41 +218,40 @@ public class EmployeeView {
                     "5.Quản lý. \n" +
                     "6.Giám đốc \n");
             System.out.print("Vui lòng chọn: ");
-            choice = Integer.parseInt(in.nextLine());
-            switch (choice){
-                case 1:
-
-                    level = "Lễ tân";
-                    valid = true;
-                    break;
-                case 2:
-
-                    level = "Phục vụ";
-                    valid = true;
-                    break;
-                case 3:
-
-                    level = "Chuyên viên";
-                    valid = true;
-                    break;
-                case 4:
-
-                    level = "Giám sát";
-                    valid = true;
-                    break;
-                case 5:
-
-                    level = "Quản lý";
-                    valid = true;
-                    break;
-                case 6:
-
-                    level = "Giám đốc";
-                    valid = true;
-                    break;
-                default:
-                    System.out.println("Bạn chọn sai.");
-                    break;
+            try {
+                choice = Integer.parseInt(in.nextLine());
+                switch (choice){
+                    case 1:
+                        level = "Lễ tân";
+                        valid = true;
+                        break;
+                    case 2:
+                        level = "Phục vụ";
+                        valid = true;
+                        break;
+                    case 3:
+                        level = "Chuyên viên";
+                        valid = true;
+                        break;
+                    case 4:
+                        level = "Giám sát";
+                        valid = true;
+                        break;
+                    case 5:
+                        level = "Quản lý";
+                        valid = true;
+                        break;
+                    case 6:
+                        level = "Giám đốc";
+                        valid = true;
+                        break;
+                    default:
+                        System.out.println("Bạn chọn sai.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập một số hợp lệ.");
+            } catch (Exception e){
+                System.err.println(e.getMessage());
             }
         }while (!valid);
         return level;
@@ -182,60 +268,78 @@ public class EmployeeView {
                     "3.Đại học.\n" +
                     "4.Sau đại học.\n");
             System.out.print("Vui lòng chọn: ");
-            choice = Integer.parseInt(in.nextLine());
-            switch (choice){
-                case 1:
-                    position = "Trung cấp";
-                    check = true;
-                    break;
-                case 2:
-                    position = "Cao đẳng";
-                    check = true;
-                    break;
-                case 3:
-                    position = "Đại học";
+            try {
+                choice = Integer.parseInt(in.nextLine());
+                switch (choice){
+                    case 1:
+                        position = "Trung cấp";
+                        check = true;
+                        break;
+                    case 2:
+                        position = "Cao đẳng";
+                        check = true;
+                        break;
+                    case 3:
+                        position = "Đại học";
 
-                    check = true;
-                    break;
-                case 4:
-                    position = "Sau đại học";
+                        check = true;
+                        break;
+                    case 4:
+                        position = "Sau đại học";
 
-                    check = true;
-                    break;
-                default:
-                    System.out.println("Bạn chọn sai.");
-                    break;
+                        check = true;
+                        break;
+                    default:
+                        System.out.println("Bạn chọn sai.");
+                        break;
+                }
+            }catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập một số hợp lệ.");
+            } catch (Exception e){
+                System.err.println(e.getMessage());
             }
         }while (!check);
         return position;
     }
 
     private static String inputGender() {
-        String gender = "";
+        String gender = null;
         boolean valid = false;
         while (!valid) {
-            System.out.print("Nhập giới tính (Nam, Nữ, LGBT): ");
-            gender = in.nextLine().trim().toLowerCase();
-            if (gender.equals("nam") || gender.equals("nữ") || gender.equals("lgbt")) {
-                valid = true;
-            } else {
-                System.out.println("Giới tính không hợp lệ. Nhập lại.");
+            try {
+                System.out.print("Nhập giới tính (Nam, Nữ, LGBT): ");
+                gender = in.nextLine().trim().toLowerCase();
+                if (gender.equals("nam") || gender.equals("nữ") || gender.equals("lgbt")) {
+                    valid = true;
+                } else {
+                    System.out.println("Giới tính không hợp lệ. Nhập lại.");
+                }
+            }catch (NullPointerException | IllegalStateException e) {
+                System.out.println("Đã xảy ra lỗi. Vui lòng thử lại.");
+                break;
             }
         }
         return gender;
     }
 
     private static String inputEmail() {
-        String email = "";
+        String email = null;
         boolean valid = false;
         while (!valid){
-            System.out.print("Nhập email (abc@gmail.com): ");
-            email = in.nextLine();
-            if (RegexEmployee.regexEmail(email)){
-                valid = true;
-            }else {
-                System.out.println("Sai mẫu nhập lại.");
+            try {
+                System.out.print("Nhập email (abc@gmail.com): ");
+                email = in.nextLine();
+                if (RegexEmployee.regexEmail(email)){
+                    valid = true;
+                }else {
+                    System.out.println("Sai mẫu nhập lại.");
+                }
+            }catch (NullPointerException e) {
+                System.out.println("Đã xảy ra lỗi. Vui lòng thử lại.");
+            }catch (Exception e){
+                System.err.println(e.getMessage());
             }
+
         }
         return email;
     }
@@ -244,12 +348,19 @@ public class EmployeeView {
         String phone = null;
         boolean valid = false;
         while (!valid){
-            System.out.print("Nhập số điện thoại (từ 0 và đủ 10 số): ");
-            phone = in.nextLine();
-            if (RegexEmployee.regexPhone(phone)){
-                valid = true;
-            }else {
-                System.out.println("Vui lòng nhập lai.");
+            try {
+                System.out.print("Nhập số điện thoại (từ 0 và đủ 10 số): ");
+                phone = in.nextLine();
+                if (RegexEmployee.regexPhone(phone)){
+                    valid = true;
+                }else {
+                    System.out.println("Vui lòng nhập lai.");
+                }
+            }catch (NullPointerException e) {
+                System.out.println("Đã xảy ra lỗi. Vui lòng thử lại.");
+                break;
+            } catch (Exception e){
+                System.err.println(e.getMessage());
             }
         }
         return phone;
@@ -277,21 +388,26 @@ public class EmployeeView {
         while (!valid) {
             System.out.print("Nhập ngày sinh (dd/MM/yyyy): ");
             birthday = in.nextLine();
-            try {
-                LocalDate birthDate = LocalDate.parse(birthday, formatter);
-                LocalDate today = LocalDate.now();
-                Period age = Period.between(birthDate, today);
-                if (age.getYears() >= 18) {
-                    valid = true;
-                    System.out.println("Bạn đã đủ 18 tuổi.");
-                } else {
-                    System.out.println("Bạn chưa đủ 18 tuổi. Nhập lại.");
-                }
-            } catch (Exception e) {
-                System.out.println("Ngày sinh không hợp lệ. Nhập lại.");
-            }
+            valid = isValid(formatter, valid, birthday);
         }
         return birthday;
+    }
+
+    static boolean isValid(DateTimeFormatter formatter, boolean valid, String birthday) {
+        try {
+            LocalDate birthDate = LocalDate.parse(birthday, formatter);
+            LocalDate today = LocalDate.now();
+            Period age = Period.between(birthDate, today);
+            if (age.getYears() >= 18) {
+                valid = true;
+                System.out.println("Bạn đã đủ 18 tuổi.");
+            } else {
+                System.out.println("Bạn chưa đủ 18 tuổi. Nhập lại.");
+            }
+        } catch (Exception e) {
+            System.out.println("Ngày sinh không hợp lệ. Nhập lại.");
+        }
+        return valid;
     }
 
     private static String inputName() {
@@ -299,7 +415,7 @@ public class EmployeeView {
         boolean valid = false;
         while (!valid){
             System.out.print("Nhập họ tên nhân viên: ");
-            name = in.nextLine();
+            name = in.nextLine().trim();
             if (RegexEmployee.regexName(name)){
                 valid = true;
             }else {

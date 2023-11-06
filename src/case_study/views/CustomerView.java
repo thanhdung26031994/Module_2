@@ -91,7 +91,6 @@ public class CustomerView {
         }else {
             System.out.println("Không tìm thấy id.");
         }
-
     }
 
     private static void displayCustomer() {
@@ -221,19 +220,7 @@ public class CustomerView {
         while (!valid){
             System.out.print("Nhập ngày sinh (mm/dd/YYYY): ");
             birthday = in.nextLine().trim();
-            try {
-                LocalDate birthDate = LocalDate.parse(birthday, formatter);
-                LocalDate today = LocalDate.now();
-                Period age = Period.between(birthDate, today);
-                if (age.getYears() >= 18) {
-                    valid = true;
-                    System.out.println("Bạn đã đủ 18 tuổi.");
-                } else {
-                    System.out.println("Bạn chưa đủ 18 tuổi. Nhập lại.");
-                }
-            } catch (Exception e) {
-                System.out.println("Ngày sinh không hợp lệ. Nhập lại.");
-            }
+            valid = EmployeeView.isValid(formatter, valid, birthday);
         }
         return birthday;
     }

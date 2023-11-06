@@ -1,6 +1,6 @@
 package case_study.models;
 
-public abstract class Facility {
+public class Facility {
     private String code;
     private String serviceName;
     private Float acreage;
@@ -70,13 +70,11 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return "Facility{" +
-                "code='" + code + '\'' +
-                ", serviceName='" + serviceName + '\'' +
-                ", acreage=" + acreage +
-                ", costsRental=" + costsRental +
-                ", maxPeople=" + maxPeople +
-                ", typeRental='" + typeRental + '\'' +
-                '}';
+        return "Mã dịch vụ: " + code +
+                ", Tên dịch vụ: " + serviceName +
+                ", Diện tích sử dụng: " + acreage +
+                ", Chi phí thuê: " + costsRental +
+                ", Số lượng người tối đa: " + maxPeople +
+                ", Kiểu thuê: " + typeRental;
     }
 }

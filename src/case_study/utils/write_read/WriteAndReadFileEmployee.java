@@ -63,6 +63,12 @@ public class WriteAndReadFileEmployee {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return employeeList;
     }

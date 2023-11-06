@@ -16,16 +16,16 @@ public class WriteAndReadFileCustomer {
         try {
             fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
-            for (Customer c: customers){
-                bufferedWriter.write(c.getId() +
-                        "," + c.getName() +
-                        "," + c.getBirthday() +
-                        "," + c.getIdCard() +
-                        "," + c.getPhoneNumber() +
-                        "," + c.getEmail() +
-                        "," + c.getGender() +
-                        "," + c.getGuestType()+
-                        "," + c.getAddress());
+            for (Customer customer: customers){
+                bufferedWriter.write(customer.getId() +
+                        "," + customer.getName() +
+                        "," + customer.getBirthday() +
+                        "," + customer.getIdCard() +
+                        "," + customer.getPhoneNumber() +
+                        "," + customer.getEmail() +
+                        "," + customer.getGender() +
+                        "," + customer.getGuestType()+
+                        "," + customer.getAddress());
                 bufferedWriter.newLine();
             }
         } catch (IOException e) {

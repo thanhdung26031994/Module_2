@@ -2,6 +2,7 @@ package case_study.repositories.impl;
 
 import case_study.models.Employee;
 import case_study.repositories.IEmployeeRepository;
+import case_study.utils.write_read.WriteAndReadFacility;
 import case_study.utils.write_read.WriteAndReadFileEmployee;
 
 import java.util.ArrayList;
@@ -37,26 +38,6 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public void editEmployeeUp(String id, Employee employee) {
-        List<Employee> employees = WriteAndReadFileEmployee.readToFile();
-        for (Employee e: employees){
-            if (e.getId().equals(id)){
-                e.setName(employee.getName());
-                e.setBirthday(employee.getBirthday());
-                e.setIdCard(employee.getIdCard());
-                e.setEmail(employee.getEmail());
-                e.setGender(employee.getGender());
-                e.setPosition(employee.getPosition());
-                e.setLevel(employee.getLevel());
-                e.setSalary(employee.getSalary());
-                WriteAndReadFileEmployee.writeToFile(employees);
-                return;
-            }
-        }
-
-    }
-
-    @Override
     public void deleteById(String idDel) {
         List<Employee> employees = WriteAndReadFileEmployee.readToFile();
         for (Employee e: employees){
@@ -82,5 +63,111 @@ public class EmployeeRepository implements IEmployeeRepository {
         return employeeList;
     }
 
+    @Override
+    public void editName(String id, String nameUp) {
+        List<Employee> employees = WriteAndReadFileEmployee.readToFile();
+        for (Employee employee: employees){
+            if (employee.getId().equalsIgnoreCase(id)){
+                employee.setName(nameUp);
+                WriteAndReadFileEmployee.writeToFile(employees);
+                return;
+            }
+        }
+    }
 
+    @Override
+    public void editBirthday(String id, String birthdayUp) {
+        List<Employee> employees = WriteAndReadFileEmployee.readToFile();
+        for (Employee employee: employees) {
+            if (employee.getId().equalsIgnoreCase(id)) {
+                employee.setBirthday(birthdayUp);
+                WriteAndReadFileEmployee.writeToFile(employees);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void editIdCardUp(String id, String idCardUp) {
+        List<Employee> employees = WriteAndReadFileEmployee.readToFile();
+        for (Employee employee: employees) {
+            if (employee.getId().equalsIgnoreCase(id)) {
+                employee.setIdCard(idCardUp);
+                WriteAndReadFileEmployee.writeToFile(employees);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void editPhoneUp(String id, String phoneNumberUp) {
+        List<Employee> employees = WriteAndReadFileEmployee.readToFile();
+        for (Employee employee: employees) {
+            if (employee.getId().equalsIgnoreCase(id)) {
+                employee.setPhoneNumber(phoneNumberUp);
+                WriteAndReadFileEmployee.writeToFile(employees);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void editEmailUp(String id, String emailUp) {
+        List<Employee> employees = WriteAndReadFileEmployee.readToFile();
+        for (Employee employee: employees) {
+            if (employee.getId().equalsIgnoreCase(id)) {
+                employee.setEmail(emailUp);
+                WriteAndReadFileEmployee.writeToFile(employees);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void editGenderUp(String id, String genderUp) {
+        List<Employee> employees = WriteAndReadFileEmployee.readToFile();
+        for (Employee employee: employees) {
+            if (employee.getId().equalsIgnoreCase(id)) {
+                employee.setGender(genderUp);
+                WriteAndReadFileEmployee.writeToFile(employees);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void editPosition(String id, String positionUp) {
+        List<Employee> employees = WriteAndReadFileEmployee.readToFile();
+        for (Employee employee: employees) {
+            if (employee.getId().equalsIgnoreCase(id)) {
+                employee.setPosition(positionUp);
+                WriteAndReadFileEmployee.writeToFile(employees);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void editLevel(String id, String levelUp) {
+        List<Employee> employees = WriteAndReadFileEmployee.readToFile();
+        for (Employee employee: employees) {
+            if (employee.getId().equalsIgnoreCase(id)) {
+                employee.setLevel(levelUp);
+                WriteAndReadFileEmployee.writeToFile(employees);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void editSalary(String id, Double salaryUp) {
+        List<Employee> employees = WriteAndReadFileEmployee.readToFile();
+        for (Employee employee: employees) {
+            if (employee.getId().equalsIgnoreCase(id)) {
+                employee.setSalary(salaryUp);
+                WriteAndReadFileEmployee.writeToFile(employees);
+                return;
+            }
+        }
+    }
 }
